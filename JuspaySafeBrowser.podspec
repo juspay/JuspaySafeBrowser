@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "JuspaySafeBrowser"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "JusPay Safe Browser (codename: Godel) aims to reduce friction in Second Factor Authentication for Cards and Netbanking"
 
   # This description is used to generate tags and improve search results.
@@ -82,7 +82,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/juspay/JuspaySafeBrowser", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/juspay/JuspaySafeBrowser.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -93,10 +93,10 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "JuspaySafeBrowser/JuspaySafeBrowserHeader.h"
+  s.source_files  = "JuspaySafeBrowser.framework/Versions/A/Headers/*.{h}"
   # s.exclude_files = "Classes/Exclude"
 
-  s.public_header_files = "JuspaySafeBrowser/JuspaySafeBrowserHeader.h"
+  s.public_header_files = "JuspaySafeBrowser.framework/Versions/A/Headers/*.{h}"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -136,6 +136,7 @@ Pod::Spec.new do |s|
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
-  s.ios.vendored_frameworks = "Build/JuspaySafeBrowser.framework"
+  s.ios.vendored_frameworks = "JuspaySafeBrowser.framework"
+  s.resource = 'JuspaySafeBrowser.bundle'
 
 end
