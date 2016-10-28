@@ -24,25 +24,25 @@
 
 @class JPNetworkTest;
 
-typedef void(^JPBlock)(BOOL status,NSError *error, id info);
+typedef void(^JPBlock)(Boolean status,NSError* _Nullable error, id _Nullable info);
 
 @protocol JuspaySafeBrowserDelegate <NSObject>
 
 @optional
-- (BOOL)browserShouldStartLoadingUrl:(NSURL *)url;
-- (void)browserDidStartLoadingUrl:(NSURL *)url;
-- (void)browserDidFinishLoadUrl:(NSURL *)url;
-- (void)browserDidFailLoadingUrl:(NSURL*)url withError:(NSError *)error;
+- (BOOL)browserShouldStartLoadingUrl:(NSURL * _Nullable)url;
+- (void)browserDidStartLoadingUrl:(NSURL * _Nullable)url;
+- (void)browserDidFinishLoadUrl:(NSURL * _Nullable)url;
+- (void)browserDidFailLoadingUrl:(NSURL* _Nullable)url withError:(NSError *_Nullable)error;
 @end
 
 @interface JuspaySafeBrowser : UIView
 
-@property (nonatomic, weak) id <JuspaySafeBrowserDelegate>jpBrowserDelegate;
+@property (nonatomic, weak) id <JuspaySafeBrowserDelegate>_Nullable jpBrowserDelegate;
 @property (nonatomic) Boolean isControllerAllowedToPop;
 @property (nonatomic) Boolean shouldLoadEndURL;
 
-- (void)startpaymentWithJuspayInView:(UIView*)view withParameters:(BrowserParams*)params callback:(JPBlock)callback;
+- (void)startpaymentWithJuspayInView:(UIView* _Nonnull)view withParameters:(BrowserParams* _Nonnull)params callback:(JPBlock _Nullable)callback;
 - (void)backButtonPressed;
-- (void)callbackWithError:(int)errorCode failiingURL:(NSString*)failingURL;
+- (void)callbackWithError:(int)errorCode failiingURL:(NSString* _Nullable)failingURL;
 
 @end
