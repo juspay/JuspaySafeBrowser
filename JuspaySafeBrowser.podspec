@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "JuspaySafeBrowser"
-  s.version      = "0.0.11"
+  s.version      = "0.1.1"
   s.summary      = "JusPay Safe Browser (codename: Godel) aims to reduce friction in Second Factor Authentication for Cards and Netbanking"
 
   # This description is used to generate tags and improve search results.
@@ -136,7 +136,8 @@ Pod::Spec.new do |s|
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
-  s.ios.vendored_frameworks = "JuspaySafeBrowser.framework"
+  s.ios.framework = 'MessageUI', 'CoreTelephony', 'SystemConfiguration', 'JavaScriptCore'
+  s.ios.vendored_frameworks = "JuspaySafeBrowser.framework", 'c++', 'z'
   s.resource = 'JuspaySafeBrowser.bundle'
 
 end
