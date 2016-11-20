@@ -16,22 +16,49 @@
  * from JusPay Technologies Pvt Ltd.
  */
 
+/**
+ A list of possible payment status.
+ 
+ @typedef PaymentStatus
+ @constant UNKNOWNSTATUS Status is unknown.
+ @constant SUCCESS Payment was successful.
+ @constant FAILURE Payment has failed.
+ @constant CANCELLED Payment has been cancelled by user.
+ */
 typedef enum{
     UNKNOWNSTATUS,
     SUCCESS,
     FAILURE,
     CANCELLED
 }PaymentStatus;
+
 #define PaymentsStatusString(enum) [@[@"UNKNOWN",@"SUCCESS",@"FAILURE",@"CANCELLED"] objectAtIndex:enum]
 
 #import <Foundation/Foundation.h>
 
 @interface TransactionStatus : NSObject
 
+/**
+ Identifies the merchant.
+ */
+@property (nonatomic, strong) NSString *merchantId;
+
+/**
+ MerchantId followed by platform name.
+ */
 @property (nonatomic, strong) NSString *clientID;
+
+/**
+ Represents the current transactionId.
+ */
 @property (nonatomic, strong) NSString *paymentID;
+
 @property (nonatomic, strong) NSString *appName;
 @property (nonatomic, strong) NSString *paymentStatusS;
+
+/**
+ Status of payment.
+ */
 @property (nonatomic) PaymentStatus paymentStatus;
 
 @end

@@ -27,6 +27,19 @@
 
 +(JPLoger*)sharedInstance;
 
+/**
+ Sends the status of payment to juspay.
+
+ @param status Object of TransactionStatus contains information like TransactionId, Payment Status, etc.
+ @warning This should always be called from finish transaction callback method. For sending status outside callbak use the later method.
+ */
 - (void)logPaymentStatus:(TransactionStatus*)status;
+
+/**
+ Sends the status of payment to juspay.
+
+ @param transactionID TransactionId for which status is being sent
+ @param paymentStatus Object of TransactionStatus contains information like TransactionId, Payment Status, etc.
+ */
 - (void)logPaymentStatus:(NSString*)transactionID paymentStatus:(PaymentStatus)paymentStatus;
 @end

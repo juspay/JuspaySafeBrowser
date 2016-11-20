@@ -22,24 +22,78 @@
 @interface BrowserParams : NSObject
 
 //Transaction starting params
+
+/**
+ Url for starting transaction.
+ */
 @property (nonatomic, strong) NSString *url;
+
+/**
+ Data required to load along with url for starting transaction.
+ */
 @property (nonatomic, strong) NSString *postData;
-@property (nonatomic, strong) NSArray<NSString*> *endUrlRegexes;
+
+/**
+ An array of enURLs to be checked if transaction has completed.
+ @code if URL is like http://www.test.com/success
+ params.endUrlRegexes = @[".*www.test.com/success.*"];
+ */
+@property (nonatomic, strong) NSArray *endUrlRegexes;
 
 //Merchant specific params
+
+/**
+ Identifies the merchant.
+ */
 @property (nonatomic, strong) NSString *merchantId;
+
+/**
+ MerchantId followed by platform name.
+ */
 @property (nonatomic, strong) NSString *clientId;
 
 //Transaction extra params
+
+/**
+ Represents the current transactionId.
+ */
 @property (nonatomic, strong) NSString *transactionId;
+
+/**
+ Represents the order number assigned by the merchant.
+ */
 @property (nonatomic, strong) NSString *orderId;
+
+/**
+ Unique identifier of the customer.
+ */
 @property (nonatomic, strong) NSString *customerId;
+
+/**
+ Short note about transaction shown to the customer. ex. 'Paying INR 200 for Order 123456'
+ */
 @property (nonatomic, strong) NSString *displayNote;
+
+/**
+ Remarks about transaction. This will be automatically filled up in the bank page.
+ */
 @property (nonatomic, strong) NSString *remarks;
+
+/**
+ Amount of the transaction.
+ */
 @property (nonatomic, strong) NSString *amount;
 
 //Customer specific params
+
+/**
+ Email address of the customer.
+ */
 @property (nonatomic, strong) NSString *customerEmail;
+
+/**
+ Mobile number of the customer.
+ */
 @property (nonatomic, strong) NSString *customerPhoneNumber;
 
 //Payment Instrumets params
