@@ -38,6 +38,8 @@ typedef enum{
 
 @interface TransactionStatus : NSObject
 
+- (id)initWithInfo:(NSDictionary*)info;
+
 /**
  Identifies the merchant.
  */
