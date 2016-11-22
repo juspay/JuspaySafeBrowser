@@ -31,6 +31,16 @@
  */
 typedef void(^JPBlock)(Boolean status,NSError* _Nullable error, id _Nullable info);
 
+/**
+ Callback which is triggered when the transaction has reached endURL or cancelled by user.
+
+ @param status True if endURL reached , false if canceled by user.
+ @param error Error causing the url transaction to fail.
+ @param info Info contains a set of infromation passed while starting transaction like OrderId or TransactionId.
+ @param webView An instance of WKWebView with last url loaded
+ */
+typedef void(^JPWBBlock)(Boolean status,NSError* _Nullable error, id _Nullable info, WKWebView* _Nullable webView);
+
 @protocol JuspaySafeBrowserDelegate <NSObject>
 
 @optional
@@ -92,6 +102,15 @@ typedef void(^JPBlock)(Boolean status,NSError* _Nullable error, id _Nullable inf
  @param callback Callback which is triggered when the transaction has reached endURL or cancelled by user.
  */
 - (void)startpaymentWithJuspayInView:(UIView* _Nonnull)view withParameters:(BrowserParams* _Nonnull)params callback:(JPBlock _Nullable)callback;
+
+/**
+ Starts the payment process with given browser params as input and triggers the callback when completed.
+ 
+ @param view View in which payment will start.
+ @param params Object of BrowserParams for this payment request.
+ @param callback Callback which is triggered when the transaction has reached endURL or cancelled by user.
+ */
+- (void)startpaymentWithJuspayInView:(UIView* _Nonnull)view withParameters:(BrowserParams* _Nonnull)params webViewCallback:(JPWBBlock _Nullable)callback;
 
 /**
  Triggers the back button pressed dialogue. If you have a custom back button this needs to be called before calling any other methods.

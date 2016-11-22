@@ -19,6 +19,7 @@ typedef enum{
 
 @property (nonatomic,strong) BrowserParams * _Nonnull browserParams;
 @property (nonatomic,copy) JPBlock _Nonnull callback;
+@property (nonatomic,copy) JPWBBlock _Nonnull webCallback;
 @property (nonatomic) PresentationStyle presentationStyle;
 
 - (nullable instancetype)initWithPresentationStyle:(PresentationStyle)style params:(BrowserParams* _Nonnull)params callback:(JPBlock _Nonnull)callback;
