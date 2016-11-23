@@ -23,4 +23,7 @@ typedef enum{
 @property (nonatomic) PresentationStyle presentationStyle;
 
 - (nullable instancetype)initWithPresentationStyle:(PresentationStyle)style params:(BrowserParams* _Nonnull)params callback:(JPBlock _Nonnull)callback;
+
+- (IBAction)closeee:(id _Nonnull)sender;
+
 @end
