@@ -94,6 +94,9 @@ typedef void(^JPWBBlock)(Boolean status,NSError* _Nullable error, id _Nullable i
  */
 @property (nonatomic) Boolean shouldLoadEndURL;
 
+
+@property Boolean shouldNotPopOnEndURL;
+
 /**
  Starts the payment process with given browser params as input and triggers the callback when completed.
 
