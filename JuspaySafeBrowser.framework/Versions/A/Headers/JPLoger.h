@@ -41,5 +41,5 @@
  @param transactionID TransactionId for which status is being sent
  @param paymentStatus Object of TransactionStatus contains information like TransactionId, Payment Status, etc.
  */
-- (void)logPaymentStatus:(NSString*)transactionID paymentStatus:(PaymentStatus)paymentStatus;
+- (void)logPaymentStatus:(NSString*)transactionID paymentStatus:(JPPaymentStatus)paymentStatus;
 @end

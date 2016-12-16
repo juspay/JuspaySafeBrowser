@@ -26,11 +26,11 @@
  @constant CANCELLED Payment has been cancelled by user.
  */
 typedef enum{
-    UNKNOWNSTATUS,
-    SUCCESS,
-    FAILURE,
-    CANCELLED
-}PaymentStatus;
+    JPUNKNOWNSTATUS,
+    JPSUCCESS,
+    JPFAILURE,
+    JPCANCELLED
+}JPPaymentStatus;
 
 #define PaymentsStatusString(enum) [@[@"UNKNOWN",@"SUCCESS",@"FAILURE",@"CANCELLED"] objectAtIndex:enum]
 
@@ -61,6 +61,6 @@ typedef enum{
 /**
  Status of payment.
  */
-@property (nonatomic) PaymentStatus paymentStatus;
+@property (nonatomic) JPPaymentStatus paymentStatus;
 
 @end
