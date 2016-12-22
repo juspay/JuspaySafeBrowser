@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "JuspaySafeBrowser"
-  s.version      = "0.1.22"
+  s.version      = "0.1.24"
   s.summary      = "JusPay Safe Browser (codename: Godel) aims to reduce friction in Second Factor Authentication for Cards and Netbanking"
 
   # This description is used to generate tags and improve search results.
