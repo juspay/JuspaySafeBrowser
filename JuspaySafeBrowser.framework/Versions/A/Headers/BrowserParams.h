@@ -17,6 +17,7 @@
  */
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "JPCard.h"
 
 @interface BrowserParams : NSObject
@@ -88,6 +89,11 @@
  Cookies that need to be stored in browser.
  */
 @property (nonatomic, strong) NSArray *cookies;
+
+/**
+ Custom activity indicator dialog view.
+ */
+@property (nonatomic, strong) UIView *customActivityIndicator;
 
 //Customer specific params
 
