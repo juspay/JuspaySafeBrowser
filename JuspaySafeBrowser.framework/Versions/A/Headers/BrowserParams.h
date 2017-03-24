@@ -95,6 +95,11 @@
  */
 @property (nonatomic, strong) UIView *customActivityIndicator;
 
+/**
+ Contents to show on confirmation alert view while cancelling the transaction.
+ */
+@property (nonatomic, strong) NSArray *confirmationAlertContents;
+
 //Customer specific params
 
 /**

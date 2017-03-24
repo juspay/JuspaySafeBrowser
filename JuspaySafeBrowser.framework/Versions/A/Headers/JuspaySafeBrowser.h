@@ -95,9 +95,9 @@ typedef void(^JPWBBlock)(Boolean status,NSError* _Nullable error, id _Nullable i
 @property (nonatomic) Boolean shouldLoadEndURL;
 
 /**
- Set true if payment view controller should not be popped after closing payment
+ Set true if payment view controller should not be popped after payment completion
  */
-@property (nonatomic) Boolean shouldNotPopOnBackPress;
+@property (nonatomic) Boolean shouldNotPopAfterPayment;
 
 @property Boolean shouldNotPopOnEndURL;
 
