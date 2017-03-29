@@ -115,8 +115,8 @@
 //Payment Instrumets params
 @property (nonatomic, strong) NSString *cardToken;
 @property (nonatomic, strong) JPCard *card;
-@property (nonatomic, assign) CardBrand cardBrand;
-@property (nonatomic, assign) CardType cardType;
+@property (nonatomic, assign) JPSCardBrand cardBrand;
+@property (nonatomic, assign) JPSCardType cardType;
 @property (nonatomic, assign) Boolean merchantSentCardBrand;
 
 //Extra params
