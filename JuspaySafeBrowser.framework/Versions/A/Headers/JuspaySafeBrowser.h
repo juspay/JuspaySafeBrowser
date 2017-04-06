@@ -41,6 +41,8 @@ typedef void(^JPBlock)(Boolean status,NSError* _Nullable error, id _Nullable inf
  */
 typedef void(^JPWBBlock)(Boolean status,NSError* _Nullable error, id _Nullable info, WKWebView* _Nullable webView);
 
+typedef void(^JuspayWebviewCallback)(WKWebView * _Nullable webView);
+
 @protocol JuspaySafeBrowserDelegate <NSObject>
 
 @optional
@@ -78,6 +80,8 @@ typedef void(^JPWBBlock)(Boolean status,NSError* _Nullable error, id _Nullable i
 @end
 
 @interface JuspaySafeBrowser : UIView
+
+@property (nonatomic, copy) JuspayWebviewCallback _Nullable webviewCallback;
 
 /**
  JuspaySafeBrowser delegates gives url loading status.
