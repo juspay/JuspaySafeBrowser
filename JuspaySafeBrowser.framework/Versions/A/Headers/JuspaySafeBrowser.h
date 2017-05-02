@@ -128,4 +128,9 @@ typedef void(^JuspayWebviewCallback)(WKWebView * _Nullable webView);
  */
 - (void)backButtonPressed;
 
+/**
+ Closes the current session and cancels the ongoing transaction without showing confirmation dialog.
+ */
+- (void)closeSession;
+
 @end
