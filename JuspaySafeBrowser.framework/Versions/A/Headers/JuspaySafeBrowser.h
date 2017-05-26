@@ -77,6 +77,14 @@ typedef void(^JuspayWebviewCallback)(WKWebView * _Nullable webView);
  */
 - (void)browserDidFailLoadingUrl:(NSURL* _Nullable)url withError:(NSError *_Nullable)error;
 
+/**
+ Delegates is triggered when browser recives an authentication challenge.
+ 
+ @param challenge Challenge recived.
+ @param completionHandler CompletionHandler to return challenge response.
+ */
+- (void)browserDidReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge* _Nullable)challenge completionHandler:(void (^ _Nullable) (NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler;
+
 @end
 
 @interface JuspaySafeBrowser : UIView
