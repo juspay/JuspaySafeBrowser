@@ -77,6 +77,7 @@ typedef void(^JuspayWebviewCallback)(WKWebView * _Nullable webView);
  */
 - (void)browserDidFailLoadingUrl:(NSURL* _Nullable)url withError:(NSError *_Nullable)error;
 
+
 @end
 
 @interface JuspaySafeBrowser : UIView
