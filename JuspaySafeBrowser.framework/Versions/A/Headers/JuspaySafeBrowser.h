@@ -77,6 +77,7 @@ typedef void(^JuspayWebviewCallback)(WKWebView * _Nullable webView);
  */
 - (void)browserDidFailLoadingUrl:(NSURL* _Nullable)url withError:(NSError *_Nullable)error;
 
+
 @end
 
 @interface JuspaySafeBrowser : UIView
@@ -89,7 +90,7 @@ typedef void(^JuspayWebviewCallback)(WKWebView * _Nullable webView);
 @property (nonatomic, weak) id <JuspaySafeBrowserDelegate>_Nullable jpBrowserDelegate;
 
 /**
- Returns true if user has finished transaction and or has asked to cancel current tansaction.
+ Returns true if user has finished transaction and or has asked to cancel current transaction.
  */
 @property (nonatomic) Boolean isControllerAllowedToPop;
 
