@@ -134,4 +134,6 @@ typedef void(^JuspayWebviewCallback)(WKWebView * _Nullable webView);
  */
 - (void)closeSession;
 
++ (void)performLogout;
+
 @end
