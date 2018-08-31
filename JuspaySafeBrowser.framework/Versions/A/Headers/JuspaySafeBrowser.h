@@ -19,7 +19,7 @@
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
 #import "BrowserParams.h"
-#import "JPLoger.h"
+#import "JPLogger.h"
 #import "JuspayCodes.h"
 
 /**
@@ -42,6 +42,8 @@ typedef void(^JPBlock)(Boolean status,NSError* _Nullable error, id _Nullable inf
 typedef void(^JPWBBlock)(Boolean status,NSError* _Nullable error, id _Nullable info, WKWebView* _Nullable webView);
 
 typedef void(^JuspayWebviewCallback)(WKWebView * _Nullable webView);
+
+typedef void(^JuspayResponseCallback)(NSString *response, NSString *error);
 
 @protocol JuspaySafeBrowserDelegate <NSObject>
 
@@ -77,6 +79,7 @@ typedef void(^JuspayWebviewCallback)(WKWebView * _Nullable webView);
  */
 - (void)browserDidFailLoadingUrl:(NSURL* _Nullable)url withError:(NSError *_Nullable)error;
 
+- (void)onEvent:(NSString *)event payload:(NSString *)payload responseCallback:(JuspayResponseCallback)callback;
 
 @end
 

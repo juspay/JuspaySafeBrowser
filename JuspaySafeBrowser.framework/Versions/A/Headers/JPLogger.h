@@ -17,15 +17,15 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "TransactionStatus.h"
+#import "JPTransactionStatus.h"
 
-#define Logger [JPLoger sharedInstance]
+#define Logger [JPLogger sharedInstance]
 
-@interface JPLoger : NSObject
+@interface JPLogger : NSObject
 
 @property (nonatomic, strong) NSString *clientID;
 
-+(JPLoger*)sharedInstance;
++(JPLogger*)sharedInstance;
 
 /**
  Sends the status of payment to juspay.
@@ -33,7 +33,7 @@
  @param status Object of TransactionStatus contains information like TransactionId, Payment Status, etc.
  @warning This should always be called from finish transaction callback method. For sending status outside callbak use the later method.
  */
-- (void)logPaymentStatus:(TransactionStatus*)status;
+- (void)logPaymentStatus:(JPTransactionStatus*)status;
 
 /**
  Sends the status of payment to juspay.

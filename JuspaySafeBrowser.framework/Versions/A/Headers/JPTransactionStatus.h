@@ -36,7 +36,7 @@ typedef enum{
 
 #import <Foundation/Foundation.h>
 
-@interface TransactionStatus : NSObject
+@interface JPTransactionStatus : NSObject
 
 - (id)initWithInfo:(NSDictionary*)info;
 
