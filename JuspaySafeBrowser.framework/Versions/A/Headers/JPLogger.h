@@ -27,6 +27,8 @@
 
 +(JPLogger*)sharedInstance;
 
+- (void)resetSharedInstance;
+
 /**
  Sends the status of payment to juspay.
 

@@ -18,7 +18,6 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "JPCard.h"
 
 @interface BrowserParams : NSObject
 
@@ -111,13 +110,6 @@
  Mobile number of the customer.
  */
 @property (nonatomic, strong) NSString *customerPhoneNumber;
-
-//Payment Instrumets params
-@property (nonatomic, strong) NSString *cardToken;
-@property (nonatomic, strong) JPCard *card;
-@property (nonatomic, assign) JPSCardBrand cardBrand;
-@property (nonatomic, assign) JPSCardType cardType;
-@property (nonatomic, assign) Boolean merchantSentCardBrand;
 
 //Extra params
 @property (nonatomic, strong) NSArray<NSString*> *whiteListedDomainsRegex;
