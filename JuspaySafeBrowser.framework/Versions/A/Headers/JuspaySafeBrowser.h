@@ -41,8 +41,6 @@ typedef void(^JPBlock)(Boolean status,NSError* _Nullable error, id _Nullable inf
  */
 typedef void(^JPWBBlock)(Boolean status,NSError* _Nullable error, id _Nullable info, WKWebView* _Nullable webView);
 
-typedef void(^JuspayWebviewCallback)(WKWebView * _Nullable webView) __deprecated;
-
 typedef void(^JuspayResponseCallback)(NSString * _Nullable response, NSString * _Nullable error);
 
 @protocol JuspaySafeBrowserDelegate <NSObject>
@@ -55,21 +53,21 @@ typedef void(^JuspayResponseCallback)(NSString * _Nullable response, NSString * 
  @param url URL to be loaded.
  @return True if url should be loaded, else false.
  */
-- (BOOL)browserShouldStartLoadingUrl:(NSURL * _Nullable)url;
+- (BOOL)browserShouldStartLoadingUrl:(NSURL * _Nullable)url __deprecated;
 
 /**
  Delegates indicates start of a url loading.
 
  @param url URL starting to load.
  */
-- (void)browserDidStartLoadingUrl:(NSURL * _Nullable)url;
+- (void)browserDidStartLoadingUrl:(NSURL * _Nullable)url __deprecated;
 
 /**
  Delegates indicates finish of a url loading.
 
  @param url URL finished loading.
  */
-- (void)browserDidFinishLoadUrl:(NSURL * _Nullable)url;
+- (void)browserDidFinishLoadUrl:(NSURL * _Nullable)url __deprecated;
 
 /**
  Delegates indicates failure of a url loading.
@@ -77,18 +75,74 @@ typedef void(^JuspayResponseCallback)(NSString * _Nullable response, NSString * 
  @param url URL failed to load.
  @param error Error which caused url to fail.
  */
-- (void)browserDidFailLoadingUrl:(NSURL* _Nullable)url withError:(NSError *_Nullable)error;
+- (void)browserDidFailLoadingUrl:(NSURL* _Nullable)url withError:(NSError *_Nullable)error __deprecated;
 
 - (void)onEvent:(NSString * _Nonnull)event payload:(NSString * _Nullable)payload responseCallback:(JuspayResponseCallback _Nonnull)callback;
+
+/**
+ Delegate method will be triggered once the webview is initialized.
+ 
+ @param webView The web view object.
+*/
+- (void)onWebViewReady:(WKWebView * _Nonnull)webView;
+
+/**
+ Delegate method will be triggered for WKNavigationDelegate's didStartProvisionalNavigation.
+ 
+ @param webView The web view invoking the delegate method.
+ @param navigation The navigation.
+*/
+- (void)webView:(WKWebView * _Nonnull)webView didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation;
+
+/**
+ Delegate method will be triggered for WKNavigationDelegate's decidePolicyForNavigationAction.
+
+ @param navigationAction The navigation action information object.
+ @param webView The web view invoking the delegate method.
+ @return True for WKNavigationActionPolicyAllow and false for WKNavigationActionPolicyCancel.
+*/
+- (bool)shouldAllowNavigationAction:(WKNavigationAction * _Nonnull)navigationAction webView:(WKWebView * _Nonnull)webView;
+
+/**
+ Delegate method will be triggered for WKNavigationDelegate's decidePolicyForNavigationResponse.
+
+ @param navigationResponse The navigation response information object.
+ @param webView The web view invoking the delegate method.
+ @return True for WKNavigationResponsePolicyAllow and false for WKNavigationResponsePolicyCancel.
+*/
+- (bool)shouldAllowNavigationResponse:(WKNavigationResponse * _Nonnull)navigationResponse webView:(WKWebView * _Nonnull)webView;
+
+/**
+ Delegate method will be triggered for WKNavigationDelegate's didFinishNavigation.
+
+ @param webView The web view invoking the delegate method.
+ @param navigation The navigation.
+*/
+- (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation;
+
+/**
+ Delegate method will be triggered for WKNavigationDelegate's didFailProvisionalNavigation.
+
+ @param webView The web view invoking the delegate method.
+ @param navigation The navigation.
+ @param error The error that occurred.
+*/
+- (void)webView:(WKWebView * _Nonnull)webView didFailProvisionalNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError * _Nonnull)error;
+
+/**
+ WKWebview's script message handler function.
+ 
+ @param userContentController The user content controller invoking the delegate method.
+ @param message The script message received.
+*/
+- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
 
 @end
 
 @interface JuspaySafeBrowser : UIView
 
-@property (nonatomic, copy) JuspayWebviewCallback _Nullable webviewCallback __deprecated;
-
 /**
- JuspaySafeBrowser delegates gives url loading status.
+ JuspaySafeBrowser delegate gives web view access, WKNavigationDelegate and script message handler functions.
  */
 @property (nonatomic, weak) id <JuspaySafeBrowserDelegate>_Nullable jpBrowserDelegate;
 
@@ -111,6 +165,11 @@ typedef void(^JuspayResponseCallback)(NSString * _Nullable response, NSString * 
  Set true if payment view controller should not be popped after reaching the EndURL
 */
 @property (nonatomic) Boolean shouldNotPopOnEndURL;
+
+/**
+ Name to be used for script message handler.
+*/
+@property (nonatomic) NSString* _Nullable scriptMessageHandler;
 
 /**
  Starts the payment process with given browser params as input and triggers the callback when completed.
